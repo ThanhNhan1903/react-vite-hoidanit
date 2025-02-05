@@ -6,7 +6,7 @@ const TodoNew = (props) => {
   const [valueInput, setValueInput] = useState("Eric");
   const { addNewTodo } = props;
   const handleClick = () => {
-    console.log("check handleInput: ", valueInput);
+    addNewTodo(valueInput);
   };
   const handleOnchange = (name) => {
     // console.log(name);
