@@ -23,6 +23,7 @@ button{
     border-radius: 10px;
     background: #3d9dee;
     color:white;
+    margin: 2px;
 }
 .todo-data{
     padding: 10px;
@@ -60,3 +61,8 @@ button{
       animation: logo-spin infinite 20s linear;
     }
   }
+
+.todoItem{
+  display: flex;
+  justify-content: space-between;
+}
