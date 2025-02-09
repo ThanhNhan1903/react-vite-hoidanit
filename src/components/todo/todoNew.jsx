@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 const TodoNew = (props) => {
-  // useState hook
-  // const valueInput = "eric";
   const [valueInput, setValueInput] = useState("Eric");
   const { addNewTodo } = props;
   const handleClick = () => {
@@ -10,7 +8,6 @@ const TodoNew = (props) => {
     setValueInput("");
   };
   const handleOnchange = (name) => {
-    // console.log(name);
     setValueInput(name);
   };
   return (
