@@ -37,6 +37,7 @@ const UpdateUserModal = (props) => {
             })
         }
     }
+
     const resetAndCloseModal = () => {
         setIsModalUpdateOpen(false);
         setFullName("");
