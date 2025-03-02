@@ -11,7 +11,7 @@ const UsersPage = () => {
     useEffect(() => {
         loadUser()
 
-    }, []);
+    }, [current, pageSize]);
     const loadUser = async () => {
         const res = await fetchAllUserApi(current, pageSize)
         if (res.data) {
