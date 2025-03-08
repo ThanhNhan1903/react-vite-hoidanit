@@ -3,18 +3,23 @@ import { Button, Checkbox, Col, Divider, Flex, Form, Input, message, notificatio
 import { useForm } from "antd/es/form/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { loginAPI } from "../services/api.services";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../components/context/auth.context";
 
 const LoginPage = () => {
     const [form] = Form.useForm()
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
+    const { setUser } = useContext(AuthContext)
+
 
     const onFinish = async (values) => {
         setLoading(true)
         const res = await loginAPI(values.email, values.password)
         if (res.data) {
             message.success("Dang Nhap Thanh Cong")
+            localStorage.setItem("access_token", res.data.access_token)
+            setUser(res.data.user);
             navigate("/");
         } else {
             notification.error({
