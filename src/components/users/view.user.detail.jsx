@@ -48,7 +48,7 @@ const ViewUserDetail = (props) => {
                     description: JSON.stringify(resUpdateAvatar.message)
                 })
             }
-            console.log("💖 handleUpdateUserAvatar newAvatar:♋", newAvatar)
+            // console.log("💖 handleUpdateUserAvatar newAvatar:♋", newAvatar)
 
         } else {
             //failed

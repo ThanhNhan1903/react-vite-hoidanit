@@ -17,7 +17,7 @@ const MyComponent = () => {
   return (
     <>
       <div>{JSON.stringify(hoidanit)} & hoidanit update</div>
-      <div>{console.log("eric")}</div>
+      {/* <div>{console.log("eric")}</div> */}
       <div className="child" style={{ borderRadius: "10px" }}>
         child
       </div>

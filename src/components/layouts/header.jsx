@@ -1,19 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd";
-import { UsergroupDeleteOutlined, HomeOutlined, BookOutlined, SettingOutlined, AuditOutlined, UsergroupAddOutlined, LoginOutlined, AliwangwangOutlined } from '@ant-design/icons';
+import { HomeOutlined, AuditOutlined, UsergroupAddOutlined, LoginOutlined, AliwangwangOutlined } from '@ant-design/icons';
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
-import { icons } from "antd/es/image/PreviewGroup";
 
 const Header = () => {
     const [current, setCurrent] = useState('');
 
     const { user } = useContext(AuthContext)
-    console.log("💖 Header user:♋", user)
 
 
     const onClick = (e) => {
-        console.log('click ', e);
         setCurrent(e.key);
     };
     const items = [
@@ -50,23 +47,6 @@ const Header = () => {
             ]
         }] : []),
 
-
-
-        // {
-        //     label: 'Cai dat',
-        //     key: 'setting',
-        //     icon: <SettingOutlined />,
-        //     children: [{
-        //         label: <Link to="/login">Dang Nhap</Link>,
-        //         key: "login"
-        //     },
-        //     {
-        //         label: "Dang Xuat",
-        //         key: "logout"
-        //     }
-        //     ]
-
-        // }
 
     ];
     return (
