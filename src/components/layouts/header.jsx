@@ -1,8 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd";
-import { UsergroupDeleteOutlined, HomeOutlined, BookOutlined, SettingOutlined } from '@ant-design/icons';
+import { UsergroupDeleteOutlined, HomeOutlined, BookOutlined, SettingOutlined, AuditOutlined, UsergroupAddOutlined, LoginOutlined, AliwangwangOutlined } from '@ant-design/icons';
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
+import { icons } from "antd/es/image/PreviewGroup";
 
 const Header = () => {
     const [current, setCurrent] = useState('');
@@ -24,29 +25,48 @@ const Header = () => {
         {
             label: <Link to={"/users"}>Users</Link>,
             key: 'users',
-            icon: <UsergroupDeleteOutlined />,
+            icon: <UsergroupAddOutlined />,
             // disabled: true,
         },
         {
             label: <Link to={"/books"}>Books</Link>,
             key: 'products',
-            icon: <BookOutlined />,
+            icon: <AuditOutlined />,
         },
-        {
-            label: 'Cai dat',
+        ...(!user.id ? [{
+            label: <Link to={"/login"}>Dang Nhap</Link>,
+            key: 'login',
+            icon: <LoginOutlined />
+        }] : []),
+        ...(user.id ? [{
+            label: `Welcome ${user.fullName}`,
             key: 'setting',
-            icon: <SettingOutlined />,
-            children: [{
-                label: <Link to="/login">Dang Nhap</Link>,
-                key: "login"
-            },
-            {
-                label: "Dang Xuat",
-                key: "logout"
-            }
+            icon: <AliwangwangOutlined />,
+            children: [
+                {
+                    label: 'Dang Xuat',
+                    key: 'logout'
+                }
             ]
+        }] : []),
 
-        }
+
+
+        // {
+        //     label: 'Cai dat',
+        //     key: 'setting',
+        //     icon: <SettingOutlined />,
+        //     children: [{
+        //         label: <Link to="/login">Dang Nhap</Link>,
+        //         key: "login"
+        //     },
+        //     {
+        //         label: "Dang Xuat",
+        //         key: "logout"
+        //     }
+        //     ]
+
+        // }
 
     ];
     return (
